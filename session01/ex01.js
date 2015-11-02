@@ -1,11 +1,18 @@
 // part 1: strings
 
 // define two variables and assign strings to them
-
+var one = "Hello"; 
+var two = " World";
+// console.log(one, two);
 // define a third variable which holds the concatenation of the two other strings
-
+var three = one + two;
 // write a function which does exactly this, accepts two strings and returns their concatenation
+function concat(string1, string2) {
+	var string3 = string1 + string2;
+	console.log(string3);
+}
 
+concat(one, two);
 // use this function to define another function which accepts a name and outputs "Hello name"
 
 // Was it useful to define the concat function?
@@ -31,7 +38,7 @@
 //write the following in a file
 
 function setup() {
-
+	ellipse(20, 20, 20, 20);
 }
 
 // go to the website p5js.org and figure out which function to call to draw a circle on the screen
