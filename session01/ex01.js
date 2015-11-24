@@ -3,20 +3,25 @@
 // define two variables and assign strings to them
 var one = "Hello"; 
 var two = " World";
-// console.log(one, two);
+
 // define a third variable which holds the concatenation of the two other strings
 var three = one + two;
-// write a function which does exactly this, accepts two strings and returns their concatenation
-function concat(string1, string2) {
-	var string3 = string1 + string2;
-	console.log(string3);
-}
 
-concat(one, two);
+// write a function which does exactly this, accepts two strings and returns their concatenation
+function concat(jack, amy) {
+	var string3 = jack + amy;
+	return string3;
+}
+console.log(concat(one, two));
+
 // use this function to define another function which accepts a name and outputs "Hello name"
+function greet(name) {
+	return concat("Hello ", name);
+}
+console.log(greet("Alex"));
 
 // Was it useful to define the concat function?
-
+// no, + already does the job just fine.
 
 // part 2: numbers
 
@@ -31,16 +36,3 @@ concat(one, two);
 // you just computed the length of a line in the plane from (0,0) to (x,y)
 // write a function length which does exactly this, 
 // so that the previous operations can be captured by length(5, 6)
-
-
-// part 3: p5.js
-
-//write the following in a file
-
-function setup() {
-	ellipse(20, 20, 20, 20);
-}
-
-// go to the website p5js.org and figure out which function to call to draw a circle on the screen
-// call that function in setup()
-// can you make the circle move??
