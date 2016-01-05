@@ -21,7 +21,7 @@ function draw() {
 	stroke(0, 0, 150);
 	ellipse(x, y, 50, 50); // arguments: x, y, width, height
 	x = x + speedX;
-	y = y + speedY
+	y = y + speedY;
 
 	if (x > width || x < 0) {
 		speedX = -1 * speedX;
