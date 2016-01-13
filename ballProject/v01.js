@@ -45,4 +45,7 @@ function display() {
 	strokeWeight(10);
 	stroke(0, 0, 150);
 	ellipse(x, y, 50, 50);
+	fill(0, 150, 0);
+	noStroke();
+	rect(x+10, y-20, 20, 50);
 }
