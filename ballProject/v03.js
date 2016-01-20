@@ -1,38 +1,48 @@
 /*
 	improvement of moving ball sketch
 	goal: make 100 balls move
-	version 2: introduce objects
+	version 3: introduce arrays and looping
 */
 
-var ball1 = {
-	speedX: 0,
-	speedY: 0
-};
+var balls = [], numOfBalls = 100;
 
 var gravity = 0.1;
 // first component crudely models wind
-var force = { 
+var force = {
 	x: random(-0.1, 0.1),
 	y: gravity
 };
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-	ball1.x = width/2;
-	ball1.y = 50;
+
+	for (var i = 0; i < numOfBalls; i++) {
+		var ball = {
+			x: random(width),
+			y: random(100),
+			speedX: random(-2, 2),
+			speedY: 0
+		};
+		balls.push(ball);
+	}
 }
 
 function draw() {
 	background(255);
-	applyForce(ball1, force);
-	move(ball1);
-	bounce(ball1);
-	display(ball1);
+
+	for (var i = 0; i < numOfBalls; i++) {
+		var ball = balls[i];
+		applyForce(ball, force);
+		move(ball);
+		bounce(ball);
+		display(ball);
+	}
 }
 function mousePressed() {
 	background(255);
 }
 
+// this should be generalized to allow for any kind of force (see later)
 function applyForce(b, f) {
 	b.speedY += f.y;
 	b.speedX += f.x;
@@ -51,8 +61,12 @@ function bounce(b) {
 		b.x = 0;
 		b.speedX = -1 * b.speedX;
 	}
-	if (b.y > height || b.y < 0) {
-		b.speedY = - b.speedY;
+	if (b.y > height) {
+		b.y = height;
+		b.speedY = -1 * b.speedY;
+	} else if (b.y < 0) {
+		b.y = 0;
+		b.speedY = -1 * b.speedY;
 	}
 }
 
