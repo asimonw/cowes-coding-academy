@@ -6,20 +6,22 @@
 
 var balls = [], numOfBalls = 100;
 
-var gravity = 0.1;
+var gravity = 0.2;
 // first component crudely models wind
-var force = {
-	x: random(-0.1, 0.1),
-	y: gravity
-};
+var force;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 
+	force = {
+		x: random(0.1, 0.2),
+		y: gravity
+	};
+
 	for (var i = 0; i < numOfBalls; i++) {
 		var ball = {
 			x: random(width),
-			y: random(100),
+			y: random(200),
 			speedX: random(-2, 2),
 			speedY: 0
 		};
