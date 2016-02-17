@@ -19,11 +19,14 @@ function draw() {
 
 	// draw tree
 	tree(l);
+
+	// grow as many trees as you like
+	translate(300, 0);
+	tree(l/2);
 }
 
 function tree(l) {
 	line(0, 0, 0, -l);
-
 	branch(l);
 }
 
